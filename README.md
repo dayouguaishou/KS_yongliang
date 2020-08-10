@@ -1,0 +1,2 @@
+# KS_yongliang
+基于KingSCADA及其历史库工业库的用量计算自定义脚本
