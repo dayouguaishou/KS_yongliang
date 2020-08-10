@@ -1,0 +1,28 @@
+//string tagname = "\\local\红旗区地税局.单_系统电表总电量";
+//string stime = "2018-01-04 00:05:00";
+//string etime = "2018-01-05 00:05:00";
+//切换至历史库
+//本脚本适用于服务端应用
+KDBKSSampleData1("qi", 1, "\\local\"+tagname,stime+".000", 1, "", "");
+string qi = KDBGetCellValueByFieldId("qi",0,1);
+float qishi = StrToReal(qi);
+/////////////////////////////////////////////////////////////////////
+KDBKSSampleData1("zhi", 1, "\\local\"+tagname,etime+".000", 1, "", "");
+string zhi = KDBGetCellValueByFieldId("zhi",0,1);
+float jieshu = StrToReal(zhi);
+float chazhi = jieshu - qishi;
+return chazhi;
+//////原KH数据库查询脚本
+//string ConnectStr ="DSN=xxkh;ServerAddress=192.168.10.103;ServerPort=5678;UID=sa;pwd=sa;NetworkTimeout=0";//KH链接
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//string ssql = "SELECT top 1 DataValue AS Y FROM History WHERE TagName='"+tagname+"'AND DataTime <='"+stime+"'";
+//KDBGetDataset("qi", ConnectStr, ssql);
+//string qi = KDBGetCellValueByFieldId("qi",0,0);
+//float qishi = StrToReal(qi);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//string esql = "SELECT top 1 DataValue AS Y FROM History WHERE TagName='"+tagname+"'AND DataTime <='"+etime+"'";
+//KDBGetDataset("zhi", ConnectStr, esql);
+//string zhi = KDBGetCellValueByFieldId("zhi",0,0);
+//float jieshu = StrToReal(zhi);
+//float chazhi = jieshu - qishi;
+//return chazhi;
